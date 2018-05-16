@@ -3,33 +3,20 @@ ceph-menv
 Installation
 
 1. Build links
-
-# assuming ceph build directory is at $HOME/build/ceph
-$ cd ceph-mtools
-$ sh ./build_links.sh
+# UMSTOR_OS_PATH is the host directory of your UMStor-OS project, e.g. /data/UMStor-OS/
+$ cd ceph-menv
+$ sh ./build_links.sh $UMSTOR_OS_PATH
 
 
 2. Add alias
 
 To your shell startup script (such as $HOME/.bashrc) add:
 
+e.g.
+
 alias mset='source ~/ceph-menv/mset.sh'
+
 
 3. Modify PATH
 
-Add path to ceph-menv/bin to PATH. It should precede any reference to $HOME/ceph/build/bin path.
-
-4. Modify PS1:
-
-Add references to $MRUN_PROMPT and potentially $MRUN_PROMPT_COLOR in PS1, for example:
-
-case "$TERM" in
-xterm-*color)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[$MRUN_PROMPT_COLOR;1m\]${MRUN_PROMPT}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    ;;
-*)
-    PS1='${debian_chroot:+($debian_chroot)}${MRUN_PROMPT}\u@\h:\w\$ '
-    ;;
-esac
-
-
+Add path to ceph-menv/bin to PATH. It should precede any reference to your UMStor-OS project binary path (e.g. /data/UMStor-OS/build/bin/).

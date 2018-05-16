@@ -14,6 +14,7 @@ if [ "$1" == "" ]; then
         unset MRUN_PROMPT
 else
         export MRUN_CLUSTER=$1
+        export CEPH_PATH=$2
         export MRUN_PROMPT='['${MRUN_CLUSTER}'] '
         col=$(get_color $1)
         MRUN_PROMPT_COLOR=$((col%7+31))

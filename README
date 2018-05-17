@@ -5,17 +5,22 @@ Environment assistant for use in conjuction with multiple ceph vstart (or more a
 
 Usage:
 
-$ mset <cluster>
+$ mset <cluster> $UMSTOR_OS_PATH
 
 
 For example:
 
-$ mstart.sh c1 -n
-$ mset c1
-[ c1 ] $ ceph -w
+$ MON=1 OSD=3 RGW=1 MDS=0 /data/UMStor-OS/src/mstart.sh c1 -n
+$ mset c1 /data/UMStor-OS
+$ ceph -w (say goodbye to the "mrun c1" prefix)
+
+
+Switch to other cluster:
+
+$ mset c2 /data/UMStor-OS
+$ ceph -w
 
 
 To un-set cluster:
 
 $ mset
-
